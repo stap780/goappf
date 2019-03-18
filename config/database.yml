@@ -24,7 +24,7 @@ default: &default
 
 development:
   <<: *default
-  database: goapp_development
+  database: goappf_development
   username: administrator
   password:
 
@@ -60,7 +60,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: goapp_test
+  database: goappf_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -83,6 +83,6 @@ test:
 #
 production:
   <<: *default
-  database: goapp_production
-  username: goapp
+  database: goappf_production
+  username: postgres
   password: <%= ENV['GOAPP_DATABASE_PASSWORD'] %>
