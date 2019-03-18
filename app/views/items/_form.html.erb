@@ -1,0 +1,20 @@
+<%= simple_form_for @item, :html=> { class: 'row' } do |f| %>
+<%= f.error_notification %>
+<div class="col-md-6">
+    <%= f.input :user_id , as: :hidden, :input_html => { :value => current_user.id }%>
+    <%= f.input :sku , input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group' }%>
+    <%= f.input :barcode , input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group' }%>
+    <%= f.input :title , input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group' }%>
+    <%= f.input :description , input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group' }%>
+</div>
+
+<div class="col-md-6">
+    <%= f.input :quantity , input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group' }%>
+    <%= f.input :costprice , input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group' }%>
+    <%= f.input :price , input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group' }%>
+</div>
+    <div class="col-md-3 btn-group my-3" role="group">
+      <%= f.button :submit, 'Сохранить' , class: 'btn btn-success'%>
+      <%= link_to 'Назад', url_for(:back), class: 'btn btn-info' %>
+    </div>
+<% end %>
