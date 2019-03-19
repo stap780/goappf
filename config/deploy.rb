@@ -38,8 +38,8 @@ lock "~> 3.11.0"
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
 set :application, 'goapp'
-set :repo_url, 'git@github.com:stap780/goapp.git'
-set :deploy_to, '/var/www/goapp'
+set :repo_url, 'git@github.com:stap780/goappf.git'
+set :deploy_to, '/var/www/goappf'
 set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
 set :format, :pretty
