@@ -1,5 +1,6 @@
 class HomesController < ApplicationController
-  before_filter :authorize
+  load_and_authorize_resource
+  # before_filter :authorize
   before_action :set_home, only: [:show, :edit, :update, :destroy]
   # before_filter :authorize
   # GET /homes

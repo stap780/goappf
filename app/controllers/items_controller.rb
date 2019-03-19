@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   load_and_authorize_resource
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize, only: [:edit, :update]
+  # before_filter :authorize, only: [:edit, :update]
 
   # GET /items
   # GET /items.json
@@ -71,6 +71,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:sku, :barcode, :title, :description, :quantity, :costprice, :price, :user_id)
+      params.require(:item).permit(:sku, :barcode, :title, :description, :quantity, :costprice, :price, :user_id, :image_file_name, :itemimages_attributes =>[:id, :item_id, :image, :_destroy])
     end
 end

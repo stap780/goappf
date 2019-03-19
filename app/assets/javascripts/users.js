@@ -1,5 +1,5 @@
 $(document).ready(function() {
-console.log('load users');
+//console.log('load users');
 	// отображение блока со статусами при загрузке
 		if( $('#user_role option:selected').val() === 'manager' ){
 			$('.permission_data').css('display','block');
@@ -21,7 +21,9 @@ console.log('load users');
 
 
 	//простановка статусов при загрузке страницы
-	var user_id = $('#user').val();
+	var user_id = $('#user').text();
+	if ( $('#user_role option:selected').val() === 'manager' ){
+		console.log('user_id');
 		$.ajax({
 		  type: "POST",
 		  url: "/permissions/user_permissions.json",
@@ -44,5 +46,6 @@ console.log('load users');
 				//console.log(errorThrown);
 		  }
 		})
+	}
 
 });

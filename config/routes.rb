@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
 
+  resources :itemimages do
+	  collection do
+		  post :sort
+		end
+	end
   resources :permcls
   resources :permcl_actions
   resources :permissions
@@ -24,7 +29,7 @@ Rails.application.routes.draw do
   	end
   end
 
-  root :to => "homes#index"
+  root "homes#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

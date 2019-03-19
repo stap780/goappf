@@ -14,13 +14,14 @@
  */
 @import "jquery-ui";
 @import "bootstrap";
+@import "items";
 
 
-.main-content {
-  margin-top: 40px;
+main {
+  margin-bottom: 60px;
 }
 .footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     height: 60px;

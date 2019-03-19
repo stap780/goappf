@@ -1,0 +1,10 @@
+<% if itemimage.persisted?%>
+<%= content_tag_for :li, itemimage do %>
+<span class="sort-image">
+<%= link_to image_tag(itemimage.image.url(:thumb)), itemimage.image.url %>
+  <div class="actions">
+    <%= link_to '<i class="fa fa-trash fa-2x" aria-hidden="true"></i>'.html_safe, itemimage_path(itemimage, :from=>"items"), :confirm => 'Точно удалить?', :method => :delete %>
+  </div>
+  </span>
+<%end%>
+<%end%>
