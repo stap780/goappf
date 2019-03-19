@@ -1,5 +1,5 @@
 working_directory '/var/www/goappf/current'
-pid '/var/www/goapp/current/tmp/pids/unicorn.pid'
+pid '/var/www/goappf/current/tmp/pids/unicorn.pid'
 stderr_path '/var/www/goappf/log/unicorn.log'
 stdout_path '/var/www/goappf/log/unicorn.log'
 listen '/tmp/unicorn.goappf.sock'
