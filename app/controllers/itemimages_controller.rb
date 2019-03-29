@@ -63,6 +63,7 @@ class ItemimagesController < ApplicationController
 	    respond_to do |format|
 	      format.html { redirect_to itemimages_url, notice: 'Картинка удалена' }
 	      format.json { head :no_content }
+        format.js
 	    end
     end
   end
@@ -83,6 +84,6 @@ class ItemimagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def itemimage_params
-      params.require(:itemimage).permit(:item_id, :image, :position)
+      params.require(:itemimage).permit(:item_id, :image, :position, :item_new)
     end
 end

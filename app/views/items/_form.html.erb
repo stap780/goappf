@@ -1,6 +1,6 @@
 <div class="row">
-
-<%= simple_form_for @item, :html=> { class: 'col-6' } do |f| %>
+<div class="col-6 ">
+<%= simple_form_for @item, :html => { multipart: true } do |f| %>
 <%= f.error_notification %>
     <%= f.input :user_id , as: :hidden, :input_html => { :value => current_user.id }%>
     <%= f.input :sku , input_html: { class: 'form-control' }, wrapper_html: { class: 'form-group' }%>
@@ -14,13 +14,25 @@
     </div>
   <div class="btn-group my-3" role="group">
     <%= f.button :submit, 'Сохранить' , class: 'btn btn-success'%>
-    <%= link_to 'Назад', url_for(:back), class: 'btn btn-info' %>
+    <%= link_to 'Назад', items_path, class: 'btn btn-info' %>
     </div>
+</div>
+
 <% end %>
 
-<div class="col-6 ">
+<div class="col-6">
     <%= form_for Itemimage.new, :url => itemimages_path, html: { multipart: true } do |f| %>
-    <%= f.hidden_field :item_id, value: @item.id %>
+    <% if @item.new_record? %>
+    <script type="text/javascript">
+      $(document).ready(function() {
+      var val = $( "input[name*='authenticity_token']" ).val( );
+      $( "#itemimage_item_id" ).val(val);
+      });
+    </script>
+    <input type="hidden" name="itemimage[item_new]" id="itemimage_item_id" value="">
+    <% else %>
+      <%= f.hidden_field :item_id, value: @item.id %>
+    <% end %>
     <%= f.file_field :image, multiple: true , name: 'itemimage[image]', class: "inputfile"  %>
       <%= f.label :image do %>
         <i class="fa fa-cloud-upload fa-2x" aria-hidden="true"></i>
@@ -32,10 +44,10 @@
 
   <ul id="images" data-update-url="<%= sort_itemimages_url %>">
     <%@item.itemimages.each do |pic|%>
-    <% if pic.persisted?%>
+      <% if pic.persisted?%>
     <%= content_tag_for :li, pic do %>
     <span class="sort-image">
-    <%= link_to image_tag(pic.image.url(:thumb)), pic.image.url %>
+    <%= link_to image_tag(pic.image.url(:thumb)), pic.image.url, target: '_blank' %>
       <div class="actions">
         <%= link_to '<i class="fa fa-trash fa-2x" aria-hidden="true"></i>'.html_safe, itemimage_path(pic, :from=>"items"), :confirm => 'Точно удалить?', :method => :delete %>
       </div>
@@ -44,6 +56,4 @@
     <%end%>
     <%end%>
   </ul>
-</div>
-
 </div>

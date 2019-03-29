@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 <div class="row">
 <div class="col-5">
 <p>
@@ -60,13 +59,15 @@
 
   <ul id="images" data-update-url="<%= sort_itemimages_url %>">
     <%@item.itemimages.each do |pic|%>
+      <% if pic.persisted?%>
     <%= content_tag_for :li, pic do %>
     <span class="sort-image">
-    <%= link_to image_tag(pic.image.url(:thumb)), pic.image.url %>
+    <%= link_to image_tag(pic.image.url(:thumb)), pic.image.url, target: '_blank' %>
       <div class="actions">
         <%= link_to '<i class="fa fa-trash fa-2x" aria-hidden="true"></i>'.html_safe, itemimage_path(pic, :from=>"items"), :confirm => 'Точно удалить?', :method => :delete %>
       </div>
       </span>
+    <%end%>
     <%end%>
     <%end%>
   </ul>

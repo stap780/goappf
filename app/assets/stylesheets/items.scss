@@ -48,8 +48,10 @@
 }
 #images .actions{
 	position: absolute;
-bottom: 0;
-text-align: center;
+	bottom: 0;
+	text-align: center;
+	width: 100%;
+	left: 0;
 }
 #images li{
 list-style: none;
@@ -63,6 +65,15 @@ list-style: none;
     min-height: 100px;
     cursor: move;
 }
+.sort-image .actions a{
+    cursor: pointer;
+}
+.sort-image .actions span{
+    cursor: pointer;
+}
+.sort-image a img{
+    cursor: pointer;
+}
 .itemimage {
     width: 123px;
     height: 158px;
@@ -75,4 +86,7 @@ list-style: none;
     padding: 5px;
 		margin: 5px;
 		background: white;
+}
+.itemimage img {
+	max-width: 100px;
 }
