@@ -15,7 +15,10 @@
 //= require jquery-ui
 //= require autocomplete-rails
 //= require bootstrap
+//= require popper
 //= require bootstrap-sprockets
+//= require bootstrap/bootstrap-rails-tooltip
+//= require bootstrap/bootstrap-rails-popover
 //= require cocoon
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl
@@ -49,3 +52,20 @@ $(document).ready(function(){
 
 
 });
+
+
+
+function pseudoDelete(obj){
+	//console.log(obj);
+		var target = "#itemimage_"+obj
+		if (confirm('Вы точно хотите удалить')) {
+			var url = "/itemimages/"+obj
+			$(target).remove();
+			$.ajax({
+				dataType: "json",
+				type: "DELETE",
+				url: url
+			})
+		}
+
+}

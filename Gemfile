@@ -5,6 +5,7 @@ gem 'rails', '4.2.8'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap', '~> 4.3.1'
+gem 'bootstrap-popover-rails'
 # gem 'bootstrap-sass'
 gem 'sprockets-rails'
 # Use Uglifier as compressor for JavaScript assets
